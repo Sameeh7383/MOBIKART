@@ -1,0 +1,108 @@
+
+<!-- ============================ COMPONENT 1 ================================= -->
+<div class="row">
+	<aside class="col-lg-9">
+<div class="card">
+<table class="table table-borderless table-shopping-cart">
+<thead class="text-muted">
+		{{#if cartEmpty}}
+
+	<p class="mt-3 ">YOUR CART IS EMPTY</p>
+{{else}}
+<tr class="small text-uppercase">
+  <th scope="col">Product</th>
+  <th scope="col" width="120">Quantity</th>
+  <th scope="col" width="120">Price</th>
+  <th scope="col" class="text-right" width="200"> </th>
+
+
+</thead>
+
+<tbody>
+
+	{{#each cartProducts}}
+<tr>
+	
+	<td>
+			
+		<figure class="itemside align-items-center">
+			<div class="aside"><img src="/product-images/{{this.CartProducts._id}}.jpg" class="img-sm"></div>
+			<figcaption class="info">
+				<a href="#" class="title text-dark">{{this.CartProducts.productName}}</a>
+				<p class="text-muted small">Color:{{this.CartProducts.color}} <br> Brand: {{this.CartProducts.Brand}}</p>
+			</figcaption>
+		</figure>
+	</td>
+
+	<td> 
+		<!-- col.// -->
+					<div class="col"> 
+						<div class="input-group input-spinner">
+							<div class="input-group-prepend">
+							<button class="btn btn-light"   onclick="changeQuantity('{{this._id}}','{{this.CartProducts._id}}','{{../data}}',-1)">-</button>
+							</div>
+							{{!-- <span type="text" class="form-control" id="{{this.product._id}}" value="{{this.quantity}}"> --}}
+							<span  class="form-control" id="{{this.CartProducts._id}}">{{this.quantity}}</span>
+							<div class="input-group-append">
+							<button class="btn btn-light"  onclick="changeQuantity('{{this._id}}','{{this.CartProducts._id}}','{{../data}}',1)" > + </button>
+							
+							</div>
+						</div> <!-- input-group.// -->
+					</div> <!-- col.// -->
+	</td>
+
+	<td> 
+		
+		<div class="price-wrap"> 
+			<p class="price">{{this.CartProducts.offerPrice}}/- Rs </p> 
+			<small class="text-muted"><del>MRP:{{this.CartProducts.price}} Rs</del></small> 
+		</div> <!-- price-wrap .// -->
+	</td>
+	<td class="text-right"> 
+	<button href="" class="btn btn-danger"onclick="deleteProduct('{{this._id}}','{{this.CartProducts._id}}')"> Remove</button>
+	</td>
+</tr>
+{{/each}}
+
+{{/if}}
+
+</tbody>
+</table>
+</div> <!-- card.// -->
+
+	</aside> <!-- col.// -->
+	<aside class="col-lg-3">
+
+		<div class="card">
+		<div class="card-body">
+			<dl class="dlist-align">
+			  <dt>Total price:</dt>
+			  <span class="text-right pl-3" id="total-cost">{{totalCost}} Rs</span>
+			</dl>
+			{{!-- <dl class="dlist-align">
+			  <dt>Tax:</dt>
+			  <dd class="text-right"> $10.00</dd>
+			</dl>
+			<dl class="dlist-align">
+			  <dt>Total:</dt>
+			  <dd class="text-right text-dark b"><strong>$59.97</strong></dd>
+			</dl> --}}
+			<hr>
+			<p class="text-center mb-3">
+				<img src="./images/misc/payments.png" height="26">
+			</p>
+			<a href="/checkout" class="btn btn-primary btn-block"> Checkout </a>
+			<a href="/" class="btn btn-light btn-block">Continue Shopping</a>
+		</div> <!-- card-body.// -->
+		</div> <!-- card.// -->
+
+</aside> <!-- col.// -->
+
+
+</div> <!-- row.// -->
+<!-- ============================ COMPONENT 1 END .// ================================= -->
+
+</div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+

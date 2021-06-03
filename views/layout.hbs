@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="max-age=604800" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>MOBIKART | One of the Biggest Mobile Shopping Platform</title>
+
+<link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+<!-- jQuery -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="javascripts/jquery-2.0.0.min.js" type="text/javascript"></script>
+
+<!-- Bootstrap4 files-->
+<script src="javascripts/bootstrap.bundle.min.js" type="text/javascript"></script>
+<link href="stylesheets/bootstrap.css" rel="stylesheet" type="text/css"/>
+
+<!-- Font awesome 5 -->
+<link href="fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
+
+<!-- custom style -->
+<link href="stylesheets/ui.css" rel="stylesheet" type="text/css"/>
+<link href="stylesheets/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+<link href="cropperjs/cropper.min.css"  rel="stylesheet" type="text/css">
+
+
+
+<!-- custom javascript -->
+
+<script src="javascripts/ajax.js" type="text/javascript"></script>
+<script src="javascripts/script.js" type="text/javascript"></script>
+
+{{!-- <script src="javascripts/zoom-image.js" type="text/javascript"></script> --}}
+
+
+<script type="text/javascript">
+/// some script
+
+// jquery ready start
+$(document).ready(function() {
+	// jQuery code
+
+}); 
+// jquery end
+</script>
+
+</head>
+  <body>
+    {{!-- HEADER SECTION --}}
+    <header class="section-header">
+{{!-- <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
+<div class="container">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+</div> <!-- container //  -->
+</nav> --}}
+
+<section class="header-main border-bottom">
+	<div class="container">
+<div class="row align-items-center">
+	<div class="col-lg-2 col-md-6 col-6">
+		<a href="./" class="brand-wrap">
+			<img class="logo" src="./images/logo.png">
+		</a> <!-- brand-wrap.// -->
+	</div>
+	<div class="col-lg col-sm-6 col-md-6 col-6 pb-sm-1 flex-grow-0">
+		<div class="category-wrap dropdown d-inline-block float-right">
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> 
+				<i class="fa fa-bars"></i> All Brands 
+			</button>
+			{{!-- <div class="dropdown-menu">
+				<a class="dropdown-item" href="#">Machinery / Mechanical Parts / Tools </a>
+				<a class="dropdown-item" href="#">Consumer Electronics / Home Appliances </a>
+				<a class="dropdown-item" href="#">Auto / Transportation</a>
+				<a class="dropdown-item" href="#">Apparel / Textiles / Timepieces </a>
+				<a class="dropdown-item" href="#">Home & Garden / Construction / Lights </a>
+				<a class="dropdown-item" href="#">Beauty & Personal Care / Health </a> 
+			</div> --}}
+		</div>  <!-- category-wrap.// -->
+	</div> <!-- col.// -->
+	{{!-- <a href="./store.html" class="btn btn-outline-primary">Store</a> --}}
+	<div class="col-lg  col-md-12 col-sm-12 col-12">
+		<form action="/productList" method="GET" class="search">
+			<div class="input-group w-100">
+			    <input type="text" name="search" class="form-control" style="width:60%;" placeholder="Search">
+			    
+			    <div class="input-group-append">
+			      <button class="btn btn-primary" type="submit">
+			        <i class="fa fa-search"></i>
+			      </button>
+			    </div>
+		    </div>
+		</form> <!-- search-wrap .end// -->
+	</div> <!-- col.// -->
+	<div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-md-2 order-sm-0 order-md-0  ">
+				<div class="d-flex ml-lg-5  mb-3 mb-lg-0">
+					{{#if data}}
+					<div class="category-wrap dropdown d-inline-block float-right">
+						
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> 
+				
+				<i class="fa fa-bars fas fa-user-circle"> </i>  {{data.firstName}}
+			</button>
+
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="/userProfile">Your Profile</a>
+				<a class="dropdown-item" href="/orderDetails">Your Orders</a>
+				<a class="dropdown-item" href="#">Your Addresses</a>
+				<a class="dropdown-item" href="/logout">Logout </a>
+			{{!-- <a class="dropdown-item" href="#">Beauty & Personal Care / Health </a>  --}}
+			</div>
+		</div>
+		{{else}}
+					<div class="widget-header">
+						<small class="title text-muted">Welcome guest!</small>
+						<div> 
+							<a href="/loginfrm">Sign in</a> <span class="dark-transp"> | </span>
+							<a href="/signupfrm"> Register</a>
+						</div>
+					</div>
+					{{/if}}
+					{{!-- <a href="/cart" class="widget-header pl-3 ml-3">
+						<div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
+						
+						<span class="badge badge-pill badge-danger notify" id="cart-count">{{cartCount}}</span>
+					</a> --}}
+				</div> <!-- widgets-wrap.// -->
+			</div> <!-- col.// -->
+			<div class="col-lg col-sm-6 col-md-6 col-6 mt-md-2 flex-grow-0  justify-content-end">
+		<a href="/cart" class="widget-header  float-right">
+						<div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
+						
+						<span class="badge badge-pill badge-danger notify" id="cart-count">{{cartCount}}</span>
+					</a>
+	</div> 
+</div> <!-- row.// -->
+	</div> <!-- container.// -->
+</section> <!-- header-main .// -->
+
+
+
+</header> <!-- section-header.// -->
+
+
+    {{{body}}}
+
+   <!-- ========================= FOOTER ========================= -->
+<footer class="section-footer border-top padding-y">
+	<div class="container">
+		<div class="col-md-12 col-lg">
+			<p class="float-lg-right text-center"> 
+			&copy Copyright 2019 All rights reserved
+		</p>
+		</div>
+		<div class="text-center float-lg-left">
+		<p>
+			<a href="#">Terms and conditions</a>
+		</p>
+		</div>
+	</div><!-- //container -->
+</footer>
+<!-- ========================= FOOTER END // ========================= -->
+<script src="javascripts/main.js" type="text/javascript"></script>
+<script src="cropperjs/cropper.min.js" type="text/javascript"></script>
+ <script>
+                                               setTimeout(function(){
+                                                    document.getElementById('errmsg1').innerHTML=""
+                                                }, 2000);
+												</script>
+
+ {{!-- <script>
+            function validateFname() {
+
+var name = document.getElementById('inputFirstName').value;
+
+if(name.length == 0) {
+
+  producePrompt('Please fill the field', 'fname-error' , 'red')
+  return false;
+
+}
+if (!name.match( /^[a-zA-Z\s]+$/)) {
+
+  producePrompt('Please enter a valid name','fname-error', 'red');
+  return false;
+
+}
+if (name.length<=2) {
+
+  producePrompt('Please enter a valid name','fname-error', 'red');
+  return false;
+
+}
+
+producePrompt('', 'fname-error', 'green');
+return true;
+
+}
+function validateLname() {
+
+var name = document.getElementById('inputLastName').value;
+
+if(name.length == 0) {
+
+  producePrompt('Please fill the field', 'lname-error' , 'red')
+  return false;
+
+}
+if (!name.match( /^[a-zA-Z\s]+$/)) {
+
+  producePrompt('Please enter a valid name','lname-error', 'red');
+  return false;
+
+}
+
+
+producePrompt('', 'lname-error', 'green');
+return true;
+
+}
+function validatePhone() {
+
+var phone = document.getElementById('contact-phone').value;
+
+  if(phone.length == 0) {
+    producePrompt('Please Enter Your Phone Number', 'phone-error', 'red');
+    return false;
+  }
+
+  
+
+  if(!phone.match(/^[0-9]{10}$/)) {
+    producePrompt('Please Enter A Valid Phone Number' ,'phone-error', 'red');
+    return false;
+  }
+
+  producePrompt('', 'phone-error', 'green');
+  return true;
+
+}
+
+
+function validatePassword() {
+
+var name = document.getElementById('inputPassword').value;
+
+if(name.length == 0) {
+
+producePrompt('Please Enter Your Password', 'password-error' , 'red')
+return false;
+
+}
+else if(name.length<=2) {
+
+producePrompt('Password should contain minimum 3 charecters', 'password-error' , 'red')
+return false;
+
+}
+else{
+producePrompt('', 'password-error', 'green');
+return true;
+
+}
+    }
+    
+function validateCpassword() {
+var pass=document.getElementById('inputPassword').value;
+var cpass = document.getElementById('inputCpassword').value;
+
+
+if(cpass.length == 0) {
+
+producePrompt('Please Confirm Your Password', 'cpassword-error' , 'red')
+return false;
+
+}
+else if(pass!=cpass) {
+
+producePrompt('Password is not matching', 'cpassword-error' , 'red')
+return false;
+
+}
+else{
+producePrompt('Matched', 'cpassword-error', 'green');
+return true;
+
+}
+    }
+function validateEmail () {
+
+var email = document.getElementById('inputEmailAddress').value;
+
+if(email.length == 0) {
+
+  producePrompt('Please Enter Your Email','email-error', 'red');
+  return false;
+
+}
+
+if(!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+
+  producePrompt('Please Enter A valid Email Id', 'email-error', 'red');
+  return false;
+
+}
+
+producePrompt('', 'email-error', 'green');
+return true;
+
+}
+
+
+
+function validateForm() {
+if (!validateFname() || !validatePhone() || !validateEmail()||!validatePassword||!validateCpassword||!validateLname()) {
+  jsShow('submit-error');
+  producePrompt('PLEASE ENTER THE FORM PROPERLY', 'submit-error', 'red');
+  setTimeout(function(){jsHide('submit-error');}, 10000);
+}
+else {
+
+}
+}
+
+function jsShow(id) {
+document.getElementById(id).style.display = 'block';
+}
+
+function jsHide(id) {
+document.getElementById(id).style.display = 'none';
+}
+
+
+
+
+
+function producePrompt(message, promptLocation, color) {
+
+document.getElementById(promptLocation).innerHTML = message;
+document.getElementById(promptLocation).style.color = color;
+
+
+</script> --}}
+
+
+
+</body>>
+</html>

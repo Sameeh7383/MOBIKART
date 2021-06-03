@@ -1,0 +1,403 @@
+
+<section class="section-content padding-y bg">
+<div class="container">
+
+
+
+<!-- ============================ COMPONENT 2 ================================= -->
+<div class="row">
+		<main class="col-md-8">
+
+<article class="card mb-4">
+   
+<div class="card-body">
+	<h4 class="card-title mb-4">Review cart</h4>
+    
+
+	<div class="row">
+         {{#each cartProducts}}
+		<div class="col-md-6">
+			<figure class="itemside  mb-4">
+				<div class="aside"><img src="/product-images/{{this.CartProducts._id}}.jpg" class="border img-sm"></div>
+				<figcaption class="info">
+					
+                   <p>{{this.CartProducts.productName}}</p> 
+					<span class="text-muted">{{this.quantity}}x ={{this.CartProducts.offerPrice}}</span>
+				</figcaption>
+			</figure>
+		
+</div> <!-- card-body.// -->
+{{/each}}
+    </div>
+
+</article> <!-- card.// -->
+
+<article class="card mb-4">
+<div class="card-body">
+	<form action="/place-order" method="POST" id="addressFrm" >
+	<div class="mb-5  ">
+  <select class="form-control required form-control-sm" id="address" onchange="showAddress('{{data._id}}')" name="AddressName"> 
+	<option value="blank">Select From Your Address Book</option>
+    <option >Home Address</option>
+	<option>Office Address</option>
+	<option >Address 3</option>
+	<option >Address 4</option></select>
+</div>
+
+
+	
+	
+	<h4 class="card-title mb-4">Contact info</h4>
+	<div action="" >
+		<div class="row">
+			<div class="form-group col-sm-6">
+				<label>First name*</label>
+				<input type="text" required name="firstName" id="firstName" placeholder="Type here" class="form-control">
+			</div>
+			<div class="form-group col-sm-6">
+				<label>Last name*</label>
+				<input type="text" required name="lastName" id="lastName"  placeholder="Type here" class="form-control">
+			</div>
+			<div class="form-group col-sm-6">
+				<label>Phone*</label>
+				<input type="text" pattern="[0-9]+" minlength="10" required name="phoneNumber" id="phoneNumber" value="+998" class="form-control">
+			</div>
+			<div class="form-group col-sm-6">
+				<label>Email*</label>
+				<input type="email"  required name="email" id="email" placeholder="example@gmail.com" class="form-control">
+			</div>
+		</div> <!-- row.// -->
+		<div class="col-md-12">
+				<h4 class="card-title mb-4">Delivery info</h4></div>
+		<div class="row">
+				<div class="form-group col-sm-6">
+					<label>Country*</label>
+					<select name="country" id="country" required class="form-control">
+						<option selected value="null">select Country</option>
+						<option value="India" >India</option>
+						<option value="United States">United States</option>
+						<option value="France">France</option>
+						<option value="Italy" >Italy</option>
+					</select>
+				</div>
+				
+				<div class="form-group col-sm-6">
+					<label>State*</label>
+					<input type="text" required name="state" id="state" placeholder="Type here" class="form-control">
+				</div>
+				<div class="form-group col-sm-8">
+					<label>Street*</label>
+					<input type="text" required name="street" id="street" placeholder="Type here" class="form-control">
+				</div>
+				<div class="form-group col-sm-4">
+					<label>Building*</label>
+					<input type="text" required name="building"id="building" placeholder="" class="form-control">
+					<input type="hidden" name="coupon" id="couponPass">
+				</div>
+				<div class="form-group col-sm-4">
+					<label>House*</label>
+					<input type="text" required name="house" id="house" placeholder="Type here" class="form-control">
+				</div>
+				{{!-- <div class="form-group col-sm-4">
+					<label>Postal code</label>
+					<input type="text" required name="postalcode" id="postalcode" placeholder="" class="form-control">
+				</div> --}}
+				<div class="form-group col-sm-4">
+					<label>Zip Code</label>
+					<input type="text" required pattern="[0-9]{6}" maxlength="6" name="zip" id="zip" placeholder="" class="form-control">
+			<input type="hidden" name="userId" id="userId" value={{data._id}}>
+				</div>
+						
+		</div>	
+		<div class="col-md-12">
+				<h4 class="card-title mb-4">Payment info</h4></div>
+		
+		<div class="card">
+		
+	<div class="card">
+		<fieldset id="group1" class="required">
+	<header class="card-header">
+		<img src="" class="float-right" height="24">  
+		
+		
+		<label class="form-check" >
+			<img src="./images/misc/payment-paypal.png" class="float-right" height="24"> 
+			<input class="form-check-input" name="paymentOption" id="paymentOption3" type="radio" value="Paypal">
+			<h6 class="form-check-label">Paypal</h6>
+		</label></header>
+		<header class="card-header">
+		<img src="" class="float-right" height="24">  
+		
+		
+		<label class="form-check" >
+			<input class="form-check-input"  name="paymentOption" id="paymentOption1" type="radio" value="razorpay">
+			<h6 class="form-check-label">Razorpay</h6>
+		</label>
+		</header>
+<header class="card-header">
+		<img src="" class="float-right" height="24">  
+		
+		
+		<label class="form-check" >
+			<img src="./images/misc/cash.jpg" class="float-right" height="24"> 
+			<input class="form-check-input"  name="paymentOption" id="paymentOption2" type="radio" value="COD">
+			
+			<h6 class="form-check-label">COD(Cash On Delivery)</h6>
+		</label></header>
+		
+		
+	
+	</fieldset>
+	<div class="form-check  mt-3">
+  <input class="form-check-input" type="checkbox" name="save" value="YES" id="defaultCheck1" onclick="addressNames()">
+  <label class="form-check-label" for="defaultCheck1">
+    <p  style="color: green;">I WANT TO SAVE THIS ADDRESS</p>
+  </label>
+</div>
+<div class="mb-2 mt-2 hide" id="adrop">
+  <select class="form-control required form-control-sm" name="AddressType"> 
+	<option>Select Your Address</option>
+    <option>Home Address </option>
+	<option>Office Address </option>
+	<option>Address 3</option>
+	<option>Address 4</option></select>
+  </div>
+</div>
+	<button   type="submit" class="btn btn-primary btn-block mt-2"> Place Order </button>
+	</div>
+
+	</form>
+</div> <!-- card-body.// -->
+</article> <!-- card.// -->
+
+
+
+
+
+
+<!-- accordion end.// -->
+  
+		</main> <!-- col.// -->
+		<aside class="col-md-4">
+			<div class="card">
+		<form class="card-body">
+			<dl class="dlist-align  p-2">
+			  <dt>Total Amount:</dt>
+			  <dd class="text-right">{{totalCost}} Rs</dd>
+			</dl>
+			<dl class="dlist-align p-2">
+			  <dt>Coupon Discount</dt>
+			  <dd id="displayDiscount" class="text-right">0.00</dd>
+			</dl>
+			<dl class="dlist-align  p-2">
+			  <dt style="color: BLUE;"><b>PAYABLE AMOUNT</b></dt>
+			  <dd style="color: BLUE;" id="displayTotal" class="text-right"><B>{{totalCost}} Rs</B></dd>
+			</dl>
+			<hr>
+			<div class="form-group mt-2 p-2">
+				<p class="err" id="errmsg1" style="color: red; text-align: center;"></p>
+				 
+			<input type="text" minlength="6" required id="inputCoupon" class="form-control" placeholder="ENTER YOUR VOUCHER CODE"  >
+			
+            
+          </div>
+		  <div class="form-group p-2">
+              <button type="button" onclick="applyCoupon({{totalCost}})" id="Bcoupon" class="btn btn-success">Apply Coupon</button>
+			  <button type="submit" class="btn btn-primary">Clear Coupon</button>
+          </div>
+		 
+			{{!-- <dl class="dlist-align">
+			  <dt>Tax:</dt>
+			  <dd class="text-right"> $10.00</dd>
+			</dl>
+			<dl class="dlist-align">
+			  <dt>Total:</dt>
+			  <dd class="text-right text-dark b"><strong>$59.97</strong></dd>
+			</dl> --}}
+			<hr>
+			<p class="text-center mb-3">
+				{{!-- <img src="./images/misc/payments.png" height="26"> --}}
+			</p>
+			
+			</form>	
+			{{!-- <button onclick="submitForms()"     class="btn btn-primary btn-block"> Place Order </button> --}}
+			{{!-- <a href="/userProfile">click here</a> --}}
+		</div> <!-- card-body.// -->
+		</div> <!-- card.// -->
+		</aside> <!-- col.// -->
+	</div> <!-- row.// -->
+
+<!-- ============================ COMPONENT 2 END//  ================================= -->
+
+
+
+
+</div> <!-- container .//  -->
+</section>
+
+<!-- ========================= SECTION CONTENT END// ========================= -->
+<script>
+	function showAddress(user){
+
+		let address= document.getElementById("address").value
+		if( address!="blank"){
+			$.ajax({
+				url:"/getAddress",
+				data:{
+					AddressType:address,
+					userId:user,
+				},method:"post",
+				success:(response)=>{
+					document.getElementById("firstName").value=response.firstName
+					document.getElementById("lastName").value=response.lastName
+					document.getElementById("phoneNumber").value=response.phoneNumber
+					document.getElementById("country").value=response.country
+					document.getElementById("state").value=response.state
+					document.getElementById("email").value=response.email
+					document.getElementById("street").value=response.street
+					document.getElementById("building").value=response.building
+					document.getElementById("house").value=response.house
+					{{!-- document.getElementById("postalcode").value=response.postalcode --}}
+					document.getElementById("zip").value=response.zip
+					document.getElementById("userId").value=response.userId
+					document.getElementById("paymentOption").value=response.paymentOption
+
+
+				}
+		})
+	}
+	}
+	</script>
+<script type="text/javascript">
+            function addressNames() {
+                if(document.getElementById("defaultCheck1").value=="YES"){
+        document.getElementById("adrop").className='show';
+    }else if(document.getElementById("defaultCheck1").value=="undefined"){
+        document.getElementById("adrop").className='hide';
+    }
+
+            }
+        </script>
+
+{{!-- <script>
+submitForms = function(){
+    document.getElementById("addressFrm").submit();
+    {{!-- document.getElementById("secondform").submit(); --}}
+}
+</script> --}}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+	$("#addressFrm").submit((e)=>{
+	e.preventDefault()
+	$.ajax({
+		url:'/place-order',
+		method:'post',
+		data:$('#addressFrm').serialize(), 
+		success:(response)=>{
+			
+			if(response.codSuccess){
+				location.href="/orderSuccess"
+			}
+			else if (response.rzpSuccess){
+				razorpayPayment(response.payment)
+
+			}
+			else if(response.pyplSuccess)
+			location.href=response.paypalLink
+		}
+	})
+})
+function razorpayPayment(order){
+	var options = {
+    "key": "rzp_test_PAPzu6sjALb3dA", // Enter the Key ID generated from the Dashboard
+    "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "MOBIKART",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        {{!-- alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature) --}}
+		verifyPayment(response,order)
+    },
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9999999999"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.open();
+}
+function verifyPayment(payment,order){
+	$.ajax({
+		url:"/verifyPayment",
+		data:{
+			payment,order
+		},
+		method:'post',
+		success:(response)=>{
+		if(response.status){
+			location.href="/orderSuccess"
+		}
+		else{
+			alert("payment failed")
+		}
+		}
+	})
+}
+function applyCoupon(totalCost){
+	var coupon= document.getElementById("inputCoupon").value
+	$.ajax({
+		url:"/applyCoupon",
+		data:{
+			totalCost,coupon
+		},
+		method:'post',
+		success:(response)=>{
+			console.log(response)
+		if(response.Nexist){
+			document.getElementById("errmsg1").innerHTML="Invalid Voucher Code"
+			setTimeout(function(){
+            document.getElementById('errmsg1').innerHTML=""}, 2000);
+		}
+		else if(response.used){
+			document.getElementById("errmsg1").innerHTML="You have already grabbed this offer"
+			setTimeout(function(){
+            document.getElementById('errmsg1').innerHTML=""}, 2000);
+		}
+		else if(response.Nrefer){
+			document.getElementById("errmsg1").innerHTML="You have No referral points"
+			setTimeout(function(){
+            document.getElementById('errmsg1').innerHTML=""}, 2000);
+
+		}
+		else{
+			document.getElementById("displayTotal").innerHTML = response.total+" Rs";
+			document.getElementById("displayDiscount").innerHTML = response.discount+" %";
+			document.getElementById("couponPass").value=coupon
+			
+			{{!-- document.querySelector("Bcoupon").innerHTML = 'Hide'; --}}
+			document.getElementById("Bcoupon").disabled=true
+			
+			
+			
+			
+
+		}
+
+		}
+	})
+}
+
+
+</script>

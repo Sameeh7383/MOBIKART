@@ -1,0 +1,38 @@
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-conten padding-y" style="min-height:84vh">
+
+<!-- ============================ COMPONENT LOGIN   ================================= -->
+	<div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
+      <div class="card-body">
+      <div style="text-align: center;"><h4 class="card-title mb-4" style="color: black;">ADD BRAND</h4></div>
+      <form action="/admin/addBrand" method="POST">
+          <div class="form-group">
+                             {{!-- <p class="err" id="errmsg1" style="color: red; text-align: center;">Please Login/signup to continue...</p> --}}
+
+                                      
+                                       
+
+                                                        
+                                                          
+			 <input type="text" name="brand"  id="brand" required class="form-control" placeholder="ADD BRAND" onkeyup="validateEmail()" >
+              <input type="hidden" name="id"  id="id"  class="form-control"  value="{{id}}" >
+             <span class='error-message' id='email-error'></span>
+          </div> <!-- form-group// -->
+    <!-- form-group// -->
+          
+          {{!-- <div class="form-group">
+          	<a href="#" class="float-right">Forgot password?</a> 
+           
+          </div> <!-- form-group form-check .// --> --}}
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block">ADD</button>
+          </div> <!-- form-group// -->    
+      </form>
+      </div> <!-- card-body.// -->
+    </div> <!-- card .// -->
+<!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+
+
+</section>
+<!-- =================

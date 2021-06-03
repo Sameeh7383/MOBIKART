@@ -1,0 +1,135 @@
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+
+<!-- ============================ COMPONENT REGISTER   ================================= -->
+	<div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+      <article class="card-body">
+		<header class="mb-4"><h4 class="card-title">Sign up</h4></header>
+		<form action="/signup" name="signupform" id="signupform" method="POST">
+		 {{#if phoneErr}}
+                            <p class="err" id="errmsg1" style="color: red; text-align: center;">Phone number is already registered</p>
+                            {{/if}}
+							{{#if emailErr}}
+                            <p class="err" id="errmsg2" style="color: red; text-align: center;">Email is already registered</p>
+                            {{/if}}
+                            
+                             {{!-- <p class="err" id="errmsg1" style="color: red; text-align: center;">Please Login/signup to continue...</p> --}}
+                                                                       <script>
+                                               setTimeout(function(){
+                                                    document.getElementById('errmsg2').innerHTML=""
+                                                }, 2000);
+                                                        
+                                                              </script>                                      
+                                       
+                                           <script>
+                                               setTimeout(function(){
+                                                    document.getElementById('errmsg1').innerHTML=""
+                                                }, 2000);
+                                                        
+                                                              </script>
+				<div class="form-row">
+					
+					<div class="col form-group">
+						<label>First name</label>
+					  	<input type="text" name="firstName" id="inputFirstName" required class="form-control" placeholder="" onkeyup="validateFname()">
+						  <span class='error-message' id='fname-error'></span>
+					</div> <!-- form-group end.// -->
+					<div class="col form-group">
+						<label>Last name</label>
+					  	<input type="text" class="form-control" id="inputLastName" required name="lastName" placeholder=""onkeyup="validateLname()">
+						  <span class='error-message' id='lname-error'></span>
+					</div> <!-- form-group end.// -->
+				</div> <!-- form-row end.// -->
+				<div class="form-group">
+					<label>Email</label>
+					<input type="email" name="email" id="inputEmailAddress" onkeyup="validateEmail()" required class="form-control" placeholder="">
+					<span class='error-message' id='email-error'></span>
+					<small class="form-text text-muted">We'll never share your email with anyone else.</small>
+				</div> <!-- form-group end.// -->
+				{{!-- <div class="form-group">
+					<label class="custom-control custom-radio custom-control-inline">
+					  <input class="custom-control-input" checked="" type="radio" name="gender" value="option1">
+					  <span class="custom-control-label"> Male </span>
+					</label>
+					<label class="custom-control custom-radio custom-control-inline">
+					  <input class="custom-control-input" type="radio" name="gender" value="option2">
+					  <span class="custom-control-label"> Female </span>
+					</label>
+				</div> <!-- form-group end.// --> --}}
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label>City</label>
+					  <input type="text" required name="city" class="form-control">
+					</div>
+					<div class="form-group col-md-6">
+					  <label>Phone Number</label>
+					  <input type="text" required pattern="[0-9]+" minlength="10"  name="phoneNumber" id="contact-phone" onkeyup="validatePhone()"  class="form-control">
+					  <span class='error-message' id='phone-error'></span>
+					</div>
+					
+					</div>
+					 <!-- form-group end.// -->
+					{{!-- <div class="form-group col-md-6">
+					  <label>Country</label>
+					  <select id="inputState" class="form-control">
+					    <option> Choose...</option>
+					      <option>Uzbekistan</option>
+					      <option>Russia</option>
+					      <option selected="">United States</option>
+					      <option>India</option>
+					      <option>Afganistan</option>
+					  </select>
+					</div> <!-- form-group end.// --> --}}
+				<!-- form-row.// -->
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label>Create password</label>
+					    <input class="form-control" required id="inputPassword" onkeyup="validatePassword()" name="password"type="password">
+						<span class='error-message' id='password-error'></span>
+						
+					</div> <!-- form-group end.// --> 
+					<div class="form-group col-md-6">
+						<label>Repeat password</label>
+					    <input class="form-control" required id="inputCpassword" onkeyup="validateCpassword()" type="password">
+						<span class='error-message' id='cpassword-error'></span>
+					</div> <!-- form-group end.// -->  
+				</div>
+				
+				<input type="hidden" value="Block" name="status">
+				<input type="hidden" value={{referral}} name="referralOf">
+			    <div class="form-group">
+			        <button type="submit" class="btn btn-primary btn-block"> Register  </button>
+			    </div> <!-- form-group// -->      
+			      
+			</form>
+			<script>
+				document.signupform.addEventListener("submit", function (event) {
+
+			// var user = this.querySelector("input[id=signup-username]").value;
+			var pass = this.querySelector("input[id=inputPassword]").value;
+			var pass2 = this.querySelector("input[id=inputCpassword]").value;
+		
+			var regx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		
+		
+			
+			 if (pass.trim() == "" || pass.length < 3) {
+			  document.getElementById("inputPassword").focus();
+			  event.preventDefault();
+			} else if (pass.trim() != pass2.trim()) {
+			  document.getElementById("inputCpassword").focus();
+			  event.preventDefault();
+		
+			}
+		  });
+		  </script>
+		</article><!-- card-body.// -->
+    </div> <!-- card .// -->
+    <p class="text-center mt-4">Have an account? <a href="/loginfrm">Log In</a></p>
+    <br><br>
+<!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+
+
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->

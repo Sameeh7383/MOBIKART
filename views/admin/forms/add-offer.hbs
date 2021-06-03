@@ -1,0 +1,52 @@
+
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-conten padding-y" style="min-height:84vh">
+
+<!-- ============================ COMPONENT LOGIN   ================================= -->
+	<div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
+      <div class="card-body">
+      <div style="text-align: center;"><h4 class="card-title mb-4" style="color: black;">ADD OFFER</h4></div>
+      <form action="/admin/addCoffers" method="POST">
+      {{#if exist}}
+                            <p class="err" id="errmsg2" style="color: red; text-align: center;">A OFFER IS ALREADY EXIST FOR THIS CATEGORY</p>
+                            {{/if }}
+          <div class="form-group">
+ <input type="text" required minlength="2" name="offerName" class="form-control form-control-sm"
+                                        id="offerName" placeholder="Offer NAME">
+          </div>
+          <div class="form-group">
+ <select class="form-control form-control-sm" required name="category" id="category" >
+                                        <option value="blank">Select Category</option>
+                                        {{#each category}}
+                                       
+                                        
+                                        <option value="{{this.category}}">{{this.category}}</option>
+                                        {{/each}}
+                                        
+                                    </select>
+          </div>
+          <div class="form-group">
+ <input type="number" required name="discount" required class="form-control form-control-sm"
+                                        id="discount" placeholder="DISCOUNT(IN %)">
+          </div> 
+          
+        
+
+          <!-- form-group// -->
+    <!-- form-group// -->
+          
+          {{!-- <div class="form-group">
+          	<a href="#" class="float-right">Forgot password?</a> 
+           
+          </div> <!-- form-group form-check .// --> --}}
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block">ADD OFFER</button>
+          </div> <!-- form-group// -->    
+      </form>
+      </div> <!-- card-body.// -->
+    </div> <!-- card .// -->
+<!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+
+
+</section>

@@ -1,0 +1,171 @@
+
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                {{!-- <div class="col-lg-12 d-none d-lg-block bg-register-image"></div> --}}
+                <div class="col-lg-12" ></div>
+                    <div class=" col-lg-12">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 pb-4">ADD PRODUCT</h1>
+                        </div>
+                        <form class="user pt-5" action="/admin/addproduct" method="POST" enctype="multipart/form-data">
+                            <div class="form-group row">
+                                <div class="col-sm-12 mb-5 mb-sm-0">
+                                    <input type="text" required class="form-control form-control-sm" name="productName"
+                                        id="product-name" placeholder="Product Name">
+                                </div>
+                                <div class="col-sm-6 mt-3 mb-3">
+                                    
+
+
+                                    <select class="form-control form-control-sm" required name="category" id="category" onchange="showBrand()" >
+                                       
+                                        <option value="blank">Select Category</option>
+                                        {{#each category}}
+                                       
+                                        
+                                        <option value="{{this.category}}">{{this.category}}</option>
+                                        {{/each}}
+                                        
+                                    </select>
+                                   
+                                    </div>
+                                <div class="col-sm-6 mt-3 mb-3">
+                                    <select class="form-control form-control-sm" required name="brand" id="brand" >
+                                        <option>Select Brand</option>
+                                        <option>Apple</option>
+                                        <option>Redmi</option>
+                                        <option>Samsung</option>
+                                        <option>Huawei</option>
+                                        <option>Realme</option>
+                                        <option>HP</option>
+                                        <option>Asus</option>
+                                        <option>Lenovo</option>
+                                        <oppo>oppo</oppo>
+                                      
+                                        
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 mb-3 ">
+                                    <input type="number" required name="price" required class="form-control form-control-sm"
+                                        id="price" placeholder="Price">
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <input type="number" required name="offerPrice" class="form-control form-control-sm"
+                                        id="offerPrice" placeholder="Offer Price">
+                                </div>
+                                <div class="col-sm-6 mb-3">
+
+                                    <select class="form-control required form-control-sm" name="RAM"> 
+                                         <option>RAM</option>
+                                        <option>4 GB</option>
+                                        <option>8 GB</option>
+                                        <option>16 GB</option>
+                                        <option>6 GB</option>
+                                        <option>12 GB</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+
+                                    <select class="form-control required form-control-sm"  name="ROM">
+                                        <option>Internal memory</option>
+                                        <option>16 GB</option>
+                                        <option>32 GB</option>
+                                        <option>64 GB</option>
+                                        <option>128 GB</option>
+                                        <option>256 GB</option>
+                                        <option>512 GB</option>
+                                        <option>1 TB</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <input type="text" required name="color" class="form-control form-control-sm"
+                                        id="quantity" placeholder="colour">
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <input type="number" required name="quantity" class="form-control form-control-sm"
+                                        id="quantity" placeholder="Quantity">
+                                </div>
+                                
+                                <div class="form-group col-sm-12 ">
+                                    {{!-- <input type="option" name="RAM" class="form-control form-control-user"
+                                        id="exampleInputEmail" placeholder="RAM"> --}}
+                                    <textarea id="discription" required name="discription" style="width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical " placeholder="Add product discription" ></textarea>
+                                </div>
+
+                                <div class="col-sm-12" style="text-align: center; color: black;">
+                                    <h3 style="text-align: center;">Add Images</h3>
+                                </div>
+                                <div class=" custom-file col-sm-12 mb-3 ">
+                                    <input type="file" name="image1" style="width: 10px;"
+                                        class="custom-file-input form-control form-control " id="customFile">
+                                    <label class="custom-file-label" for="customFile">Insert image</label>
+                                </div>
+                                <div class="col-sm-12 mb-3 ">
+                                    <input type="file" name="image2" class="custom-file-input form-control form-control"
+                                        id="customFile">
+                                    <label class="custom-file-label" for="customFile">Insert image</label>
+                                </div>
+                                <div class="col-sm-12 custom-file mb-3 ">
+                                    <input type="file" name="image3" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Insert image</label>
+                                </div>
+                                <button class="btn btn-primary btn-user btn-block" type="submit">
+                                    ADD PRODUCT
+                                </button>
+
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+  <script>
+ function  showBrand (){
+    let cat= document.getElementById("category").value
+            alert('ajax success')
+            if( cat!="blank"){
+                $.ajax({
+                    url:"/admin/getBrand",
+                    data:{
+                        
+                        category:cat,
+                    },method:"post",
+                    success:(response)=>{
+                         var select = document.getElementById("brand"); 
+                         let brand=response.brand
+                         for(var i = 0; i < brand.length; i++) {
+                         var opt = brand[i];
+                         var el = document.createElement("option");
+                         el.textContent = opt;
+                         el.value = opt;
+                         select.appendChild(el);
+                       }​
+                        
+                   
+                           
+    
+                      
+                        
+    
+    
+                    }
+            })
+        }
+    }
+	</script>

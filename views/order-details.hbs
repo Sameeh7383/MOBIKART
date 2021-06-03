@@ -1,0 +1,107 @@
+<!--   SIDEBAR   -->
+<section class="section-conten padding-y "></section>
+<div class="container">
+	<div class="row">
+	<aside class="col-md-2">
+		<!--   SIDEBAR   -->
+		<ul class="list-group">
+			<a class="list-group-item active" href="/orderDetails"> My Orders </a>
+			<a class="list-group-item " href="/userProfile"> Profile </a>
+			<a class="list-group-item" href="/addressView">My Addresses</a>
+			{{!--<a class="list-group-item" href="#">Settings </a>
+			<a class="list-group-item" href="#"> My Selling Items </a>
+			<a class="list-group-item" href="#"> Received orders </a> --}}
+		</ul>
+		<br>
+		<a class="btn btn-light btn-block" href="#"> <i class="fa fa-power-off"></i> <span class="text">Log out</span> </a> 
+		<!--   SIDEBAR .//END   -->
+	</aside>
+	<main class="col-md-10">
+		<article class="card">
+		<div class="container emp-profile">
+            {{!-- <form method="post"> --}}
+                <div class="row">
+                   
+                    {{#each orderDetails}} 
+	
+	<div class="col-md-12 mt-3 mb-3"  >
+		<article class="card">
+		<header class="card-header">
+			<strong class="d-inline-block mr-3">Order ID: {{this._id}}</strong>
+			<span>Order Date: {{this.date}}</span>
+		</header>
+		<div class="card-body">
+			<div class="row"> 
+				<div class="col-md-8">
+					<h6 class="text-muted">Delivery to</h6>
+					<p>{{this.address.name}} <br>  
+					Phone: {{this.address.number}} Email: {{this.address.email}} <br>
+			    	Location: {{this.address.house}},{{this.address.street}},{{this.address.state}}<br> 
+			    	P.O. Box: {{this.address.zip}}
+			 		</p>
+				</div>
+				<div class="col-md-4">
+					<h6 class="text-muted">Payment</h6>
+					<span class="text-success">
+						{{!-- <i class="fab fa-lg fa-cc-visa"></i> --}}
+					    {{this.paymentMethod}}
+					</span>
+					<p>
+					 <span class="b">{{this.totalcost}} Rs </span>
+					</p>
+					<h6 class="text-muted">Order status:</h6><p>{{this.status}}</p>
+					{{#if this.userCancel}}
+					<p></p>
+					{{else}}
+					<button type="button" class="btn btn-primary"  onclick= "window.location.href='cancelOrder/{{this._id}}'">cancel</button>
+					{{!-- <button class="btn btn-info "onclick= "window.location.href='/invoice'" style="align-content: center;">Print Invoice</button> --}}
+					{{/if}}
+				</div>
+				
+			</div> <!-- row.// -->
+		</div> <!-- card-body .// -->
+        {{#each this.product}}
+		<div class="table-responsive">
+		<table class="table table-hover">
+			<tr>
+				<td width="65">
+					<img src="/product-images/{{this.item}}.jpg" class="img-xs border">
+				</td>
+				<td> 
+					<p class="title mb-0">{{this.CartProducts.productName}}</p>
+					<var class="price text-muted">{{this.CartProducts.offerPrice}}</var>
+				</td>
+				<td width="250"> Quantity <br> {{this.quantity}} </td>
+				<td width="250"> 
+                    {{!-- <a href="#" class="btn btn-outline-primary">Track order</a>  --}}
+                <a href="/productdetails1/{{this.item}}" class="btn btn-light"> Details </a> </td>
+				{{!-- <td width="250">  <button type="button" id="button1" class="btn btn-outline-prim ary">Rate and Review</button></td> --}}
+			</tr>
+			
+		</table>
+		</div> <!-- table-responsive .end// -->
+        {{/each}}
+		</article> <!-- order-group.// --> 
+	</div>
+    {{/each}}</div>
+                </div>
+            {{!-- </form>            --}}
+        </div>
+		</article> <!-- order-group.// --> 
+	</main>
+</div> <!-- row.// -->
+</div>
+
+
+
+</section>
+
+
+{{!-- 
+<div id="openModal" class="modalDialog" style="display: none;"  >
+	<form>
+		<input type="text" placeholder="sameeh">
+	</form>
+</div> --}}
+
+  

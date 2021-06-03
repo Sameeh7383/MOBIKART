@@ -1,0 +1,125 @@
+
+<!-- ============================ COMPONENT 1 ================================= -->
+<script src="javascripts/zoom-image.js" type="text/javascript"></script>
+<div class="card">
+	<div class="row no-gutters">
+		<aside class="col-md-6 ml-5">
+            {{#product}}
+<div class="show" href="/product-images/{{this._id}}.jpg">
+<a href="/productdetails1/{{this._id}}" class="img-wrap"></a>
+                <img src="/product-images/{{this._id}}.jpg" id="show-img" style="margin: 10px; border: solid 1px;">
+              </div>
+        
+         
+              <div  class="small-img" >
+              
+                <div class="small-container">
+                 <div id="small-img-roll">
+                   <img src="/product-images/{{this._id}}-1.jpg"class="show-small-img" alt="">
+                   <img src="/product-images/{{this._id}}-2.jpg" class="show-small-img" alt="">
+                   <img src="/product-images/{{this._id}}.jpg" class="show-small-img" alt="">
+                   <img src="/product-images/{{this._id}}.jpg" class="show-small-img" alt="">
+                 </div>
+                </div>
+               
+              </div>
+              
+                
+  
+		</aside>
+		
+<article class="content-body">
+
+<h2 class="title">{{this.productName}}</h2>
+
+<div class="mb-3"> 
+	<var class="price h4">offerPrice:{{this.offerPrice}}/-Rs</var> 
+    {{!-- <var class="price h3">Price:{{this.price}}/-Rs</var>  --}}
+</div> 
+
+<p>{{this.discription}}</p>
+
+
+<hr>
+	<div class="row">
+		<div class="item-option-select">
+			<h6>Brand:{{this.brand}}</h6>
+            <h6>RAM:{{this.RAM}}</h6>
+            <h6>Internal memory:{{this.ROM}}</h6>
+			
+		</div>
+	</div> <!-- row.// -->
+	<div class="row">
+		
+	</div> <!-- row.// -->
+	<hr>
+	<button class="btn  btn-primary align-items-center" onclick="addToCart('{{this._id}}')"
+><span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i></button>  
+</article> <!-- product-info-aside .// -->
+		
+        {{/product}}
+	</div> <!-- row.// -->
+</div> <!-- card.// -->
+
+			  
+<link href="stylesheets/style1.css" rel="stylesheet" type="text/css" >
+<!-- ============================ COMPONENT 1 END .// ================================= -->
+
+{{!-- <script>
+		$('.show').zoomImage();
+
+$('.show-small-img:first-of-type').css({'border': 'solid 1px #951b25', 'padding': '2px'})
+$('.show-small-img:first-of-type').attr('alt', 'now').siblings().removeAttr('alt')
+$('.show-small-img').click(function () {
+  $('#show-img').attr('src', $(this).attr('src'))
+  $('#big-img').attr('src', $(this).attr('src'))
+  $(this).attr('alt', 'now').siblings().removeAttr('alt')
+  $(this).css({'border': 'solid 1px #951b25', 'padding': '2px'}).siblings().css({'border': 'none', 'padding': '0'})
+  if ($('#small-img-roll').children().length > 4) {
+    if ($(this).index() >= 3 && $(this).index() < $('#small-img-roll').children().length - 1){
+      $('#small-img-roll').css('left', -($(this).index() - 2) * 76 + 'px')
+    } else if ($(this).index() == $('#small-img-roll').children().length - 1) {
+      $('#small-img-roll').css('left', -($('#small-img-roll').children().length - 4) * 76 + 'px')
+    } else {
+      $('#small-img-roll').css('left', '0')
+    }
+  }
+})
+
+//Enable the next button
+
+$('#next-img').click(function (){
+  $('#show-img').attr('src', $(".show-small-img[alt='now']").next().attr('src'))
+  $('#big-img').attr('src', $(".show-small-img[alt='now']").next().attr('src'))
+  $(".show-small-img[alt='now']").next().css({'border': 'solid 1px #951b25', 'padding': '2px'}).siblings().css({'border': 'none', 'padding': '0'})
+  $(".show-small-img[alt='now']").next().attr('alt', 'now').siblings().removeAttr('alt')
+  if ($('#small-img-roll').children().length > 4) {
+    if ($(".show-small-img[alt='now']").index() >= 3 && $(".show-small-img[alt='now']").index() < $('#small-img-roll').children().length - 1){
+      $('#small-img-roll').css('left', -($(".show-small-img[alt='now']").index() - 2) * 76 + 'px')
+    } else if ($(".show-small-img[alt='now']").index() == $('#small-img-roll').children().length - 1) {
+      $('#small-img-roll').css('left', -($('#small-img-roll').children().length - 4) * 76 + 'px')
+    } else {
+      $('#small-img-roll').css('left', '0')
+    }
+  }
+})
+
+//Enable the previous button
+
+$('#prev-img').click(function (){
+  $('#show-img').attr('src', $(".show-small-img[alt='now']").prev().attr('src'))
+  $('#big-img').attr('src', $(".show-small-img[alt='now']").prev().attr('src'))
+  $(".show-small-img[alt='now']").prev().css({'border': 'solid 1px #951b25', 'padding': '2px'}).siblings().css({'border': 'none', 'padding': '0'})
+  $(".show-small-img[alt='now']").prev().attr('alt', 'now').siblings().removeAttr('alt')
+  if ($('#small-img-roll').children().length > 4) {
+    if ($(".show-small-img[alt='now']").index() >= 3 && $(".show-small-img[alt='now']").index() < $('#small-img-roll').children().length - 1){
+      $('#small-img-roll').css('left', -($(".show-small-img[alt='now']").index() - 2) * 76 + 'px')
+    } else if ($(".show-small-img[alt='now']").index() == $('#small-img-roll').children().length - 1) {
+      $('#small-img-roll').css('left', -($('#small-img-roll').children().length - 4) * 76 + 'px')
+    } else {
+      $('#small-img-roll').css('left', '0')
+    }
+  }
+})
+
+	</script> --}}

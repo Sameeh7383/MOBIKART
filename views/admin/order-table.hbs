@@ -1,0 +1,90 @@
+<!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+            <p class="mb-4">
+             Here You can view and manage the order in MOBIKART 
+              {{!-- <a target="_blank" href="https://datatables.net"
+                >official DataTables documentation</a --}}
+              >.
+            </p>
+
+            <!-- DataTales Example -->
+        
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                  ORDERS
+                </h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table
+                    class="table table-bordered"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Account Details</th>
+                        <th>Products</th>
+                        <th>Total Amount</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                        <th>cancel</th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                       <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Account Details</th>
+                        <th>Products</th>
+                        <th>Total Amount</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                        <th>cancel</th>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                      {{#each orderDetails}}
+                      <tr>
+                        <td>{{this._id}}</td>
+                        <td>{{this.date}}</td>
+                        <td>User name:{{this.userName}}<br>Email:{{this.userEmail}}<br>Phone number:{{this.userPh}}</td>
+                        
+                        <td >{{#each this.product}}
+                           <div class="row px-2 py-2" style="width:300px">
+                           <div class="col-md-8 w-75">{{this.CartProducts.productName}}</div>
+                           <div class="col-md-2 w-25"><button class="btn btn-outline-danger btn-sm">Delete</button></div>
+
+                           </div>
+                           {{/each}}
+                           
+                           </td>
+                        
+                        <td>{{this.totalcost}}</td>
+                        <td>{{this.address.name}} <br>  
+					Phone: {{this.address.number}} Email: {{this.address.email}} <br>
+			    	Location: {{this.address.house}},{{this.address.street}},{{this.address.state}}<br> 
+			    	P.O. Box: {{this.address.zip}}</td>
+            <td>{{this.status}}</td>
+                        <td>{{#if this.userCancel}}
+                          <p style="color: red;">Cancelled by user</p>{{else}}
+                          <button class="btn btn-primary"  onclick= "window.location.href='/admin/cancelOrder/{{this._id}}'">{{this.button}}</button>{{/if}}</td>
+                      </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        

@@ -1,0 +1,217 @@
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- ========================= SECTION CONTENT ========================= -->
+{{#if reset}}
+<script>
+  alert("Your password reset is successfull")
+  </script>
+  {{/if}}
+<section class="section-conten padding-y" style="min-height:84vh">
+
+<!-- ============================ COMPONENT LOGIN   ================================= -->
+	<div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
+      <div class="card-body">
+      <h4 class="card-title mb-4">Sign in</h4>
+      <form action="/login" method="POST">
+          <div class="form-group">
+               {{#if logginerr}}
+                            <p class="err" id="errmsg1" style="color: red; text-align: center;">Invalid username or password</p>
+                            {{/if }}
+                            
+                             {{!-- <p class="err" id="errmsg1" style="color: red; text-align: center;">Please Login/signup to continue...</p> --}}
+
+                                      
+                                       
+                                           <script>
+                                               setTimeout(function(){
+                                                    document.getElementById('errmsg1').innerHTML=""
+                                                }, 2000);
+                                                        
+                                                              </script>
+			 <input type="email" name="email"  id="inputEmailAddress" required class="form-control" placeholder="Email Address" onkeyup="validateEmail()" >
+             <span class='error-message' id='email-error'></span>
+          </div> <!-- form-group// -->
+          <div class="form-group">
+			<input type="password" required id="inputPassword" name="password" class="form-control" placeholder="Password" onkeyup="validatePassword()" >
+            <span class='error-message' id='password-error'></span>
+          </div> <!-- form-group// -->
+          
+          <div class="form-group">
+          	<a href="/otpNum" class="float-right">Login with OTP</a> 
+           
+          </div> <!-- form-group form-check .// -->
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+          </div> <!-- form-group// -->    
+           <p class="text-center mt-4"><a href="/forgotPwdFrm">Forgot Your Password?</a></p>
+           <div class="text-center">
+            <a href="/auth/google" class="btn btn-danger btn-block"><span class="fa fa-google "></span>    Sign In with Google</a>
+             <a href="/login/facebook" class=" pt-2 btn btn-primary btn-block"><span class="fa fa-facebook "></span>    Sign In with Facebook</a></div>
+            {{!-- <a href="#" class="fb btn"><i class="fa fa-facebook fa-fw"></i> Login with Facebook</a> --}}
+      </form>
+      </div> <!-- card-body.// -->
+    </div> <!-- card .// -->
+
+     <p class="text-center mt-4">Don't have account? <a href="/signupfrm">Sign up</a></p>
+    
+    
+     <br><br>
+<!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+
+
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+
+ <script>
+            function validateFname() {
+
+var name = document.getElementById('inputFirstName').value;
+
+if(name.length == 0) {
+
+  producePrompt('Please fill the field', 'fname-error' , 'red')
+  return false;
+
+}
+if (!name.match( /^[a-zA-Z\s]+$/)) {
+
+  producePrompt('Please enter a valid name','fname-error', 'red');
+  return false;
+
+}
+if (name.length<=2) {
+
+  producePrompt('Please enter a valid name','fname-error', 'red');
+  return false;
+
+}
+
+producePrompt('', 'fname-error', 'green');
+return true;
+
+}
+function validateLname() {
+
+var name = document.getElementById('inputLastName').value;
+
+if(name.length == 0) {
+
+  producePrompt('Please fill the field', 'lname-error' , 'red')
+  return false;
+
+}
+if (!name.match( /^[a-zA-Z\s]+$/)) {
+
+  producePrompt('Please enter a valid name','lname-error', 'red');
+  return false;
+
+}
+
+
+producePrompt('', 'lname-error', 'green');
+return true;
+
+}
+
+
+function validatePassword() {
+
+var name = document.getElementById('inputPassword').value;
+
+if(name.length == 0) {
+
+producePrompt('Please Enter Your Password', 'password-error' , 'red')
+return false;
+
+}
+else if(name.length<=2) {
+
+producePrompt('Password should contain minimum 3 charecters', 'password-error' , 'red')
+return false;
+
+}
+else{
+producePrompt('', 'password-error', 'green');
+return true;
+
+}
+    }
+    
+function validateCpassword() {
+var pass=document.getElementById('inputPassword').value;
+var cpass = document.getElementById('inputCpassword').value;
+
+
+if(cpass.length == 0) {
+
+producePrompt('Please Confirm Your Password', 'cpassword-error' , 'red')
+return false;
+
+}
+else if(pass!=cpass) {
+
+producePrompt('Password is not matching', 'cpassword-error' , 'red')
+return false;
+
+}
+else{
+producePrompt('Matched', 'cpassword-error', 'green');
+return true;
+
+}
+    }
+function validateEmail () {
+
+var email = document.getElementById('inputEmailAddress').value;
+
+if(email.length == 0) {
+
+  producePrompt('Please Enter Your Email','email-error', 'red');
+  return false;
+
+}
+
+if(!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+
+  producePrompt('Please Enter A valid Email Id', 'email-error', 'red');
+  return false;
+
+}
+
+producePrompt('', 'email-error', 'green');
+return true;
+
+}
+
+
+
+function validateForm() {
+if (!validateFname() || !validatePhone() || !validateEmail()||!validatePassword||!validateCpassword||!validateLname()) {
+  jsShow('submit-error');
+  producePrompt('PLEASE ENTER THE FORM PROPERLY', 'submit-error', 'red');
+  setTimeout(function(){jsHide('submit-error');}, 10000);
+}
+else {
+
+}
+}
+
+function jsShow(id) {
+document.getElementById(id).style.display = 'block';
+}
+
+function jsHide(id) {
+document.getElementById(id).style.display = 'none';
+}
+
+
+
+
+
+function producePrompt(message, promptLocation, color) {
+
+document.getElementById(promptLocation).innerHTML = message;
+document.getElementById(promptLocation).style.color = color;
+
+
+</script>

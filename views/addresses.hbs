@@ -1,0 +1,193 @@
+
+
+
+
+
+
+  
+
+<!--   SIDEBAR   -->
+<section class="section-conten padding-y "></section>
+<div class="container">
+	<div class="row">
+	<aside class="col-md-2">
+		<!--   SIDEBAR   -->
+		<ul class="list-group">
+			<a class="list-group-item" href="/orderDetails"> My Orders </a>
+			<a class="list-group-item " href="/userProfile"> Profile </a>
+			<a class="list-group-item active" href="/addressView">My Addresses</a>
+			{{!--<a class="list-group-item" href="#">Settings </a>
+			<a class="list-group-item" href="#"> My Selling Items </a>
+			<a class="list-group-item" href="#"> Received orders </a> --}}
+		</ul>
+		<br>
+		<a class="btn btn-light btn-block" href="#"> <i class="fa fa-power-off"></i> <span class="text">Log out</span> </a> 
+		<!--   SIDEBAR .//END   -->
+	</aside>
+    
+	<main class="col-md-10">
+         {{#each result}}
+		<article class="card">
+		<div class="container emp-profile">
+           
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        {{!-- <div class="profile-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <div class="file btn btn-lg btn-primary">
+                                Change Photo
+                                <input type="file" name="file"/>
+                            </div>
+                        </div> --}}
+                    </div>
+                    <div class="col-md-6">
+             <div class="profile-head">
+                                    <h5>
+                                        {{this.AddressType}}
+                                    </h5>
+                                    {{!-- <h6>
+                                        Web Developer and Designer
+                                    </h6> --}}
+                                    {{!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> --}}
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                                {{!-- <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                </li> --}}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="btn btn-primary" href="/editAddressFrm/{{this.AddressType}}">Edit Profile</a>
+                       
+                    </div>
+                </div>
+                <div class="row">
+                    {{!-- <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>WORK LINK</p>
+                            <a href="">Website Link</a><br/>
+                            <a href="">Bootsnipp Profile</a><br/>
+                            <a href="">Bootply Profile</a>
+                            <p>SKILLS</p>
+                            <a href="">Web Designer</a><br/>
+                            <a href="">Web Developer</a><br/>
+                            <a href="">WordPress</a><br/>
+                            <a href="">WooCommerce</a><br/>
+                            <a href="">PHP, .Net</a><br/>
+                        </div> --}}
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active pt-5" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                       <div class="row">
+                                            <div class="col-md-6">
+                                                <label>FirstName:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{this.firstName}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Last Name:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{this.lastName}}</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Phone Number:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{this.phoneNumber}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{this.email}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>country:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{this.country}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>State:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{this.state}}</p>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Street:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{this.street}}</p>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Building:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{this.building}}</p>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6">
+                                                <label>House:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{this.house}}</p>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Postal Code:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{this.postalcode}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>ZIP Code:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{this.zip}}</p>
+                                            </div>
+                                        </div>
+                            </div>
+                 
+                        </div>
+                    </div>
+                </div>
+            </form>           
+           
+        </div>
+         {{/each}}
+		</article> <!-- order-group.// --> 
+	</main>
+    
+</div> <!-- row.// -->
+</div>
+
+
+
+</section>
+
+
+
+

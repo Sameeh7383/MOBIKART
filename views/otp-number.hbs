@@ -1,0 +1,47 @@
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-conten padding-y" style="min-height:84vh">
+
+<!-- ============================ COMPONENT LOGIN   ================================= -->
+	<div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
+      <div class="card-body">
+          <div class="text-center">
+      <h4 class="card-title mb-4">OTP LOGIN</h4></div>
+      <form action="/otpLoginFrm" method="POST">
+          <div class="form-group">
+               {{#if phoneExist}}
+                            <p class="err" id="errmsg1" style="color: red; text-align: center;">Phone number is not registered</p>
+                            {{/if }}
+                            
+                             {{!-- <p class="err" id="errmsg1" style="color: red; text-align: center;">Please Login/signup to continue...</p> --}}
+
+                                      
+                                       
+                                           <script>
+                                               setTimeout(function(){
+                                                    document.getElementById('errmsg1').innerHTML=""
+                                                }, 2000);
+                                                        
+                                                              </script>
+
+			 <input type="text" name="phoneNumber" pattern="[0-9]+" minlength="10" id="inputEmailAddress" required class="form-control" placeholder="Registered mobile number"  >
+             
+          </div> <!-- form-group// -->
+          {{!-- <div class="form-group">
+			<input type="password" required id="inputPassword" name="OTP" class="form-control" placeholder="OTP"  >
+            
+          </div> <!-- form-group// --> --}}
+          
+          {{!-- <div class="form-group">
+          	<a href="#" class="float-right">Forgot password?</a> 
+           
+          </div> <!-- form-group form-check .// --> --}}
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block"> Submit </button>
+          </div> <!-- form-group// -->    
+      </form>
+      </div> <!-- card-body.// -->
+    </div> <!-- card .// -->
+
+     {{!-- <p class="text-center mt-4">Don't have account? <a href="/signupfrm">Sign up</a></p> --}}
+     <br><br>
+<!-- ============================ COMPONENT LOGIN  END.// ================================= -->

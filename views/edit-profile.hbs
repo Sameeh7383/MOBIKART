@@ -1,0 +1,88 @@
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+
+<!-- ============================ COMPONENT REGISTER   ================================= -->
+	<div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+      <article class="card-body">
+		<header class="mb-4 text-center"><h4 class="card-title">EDIT YOUR PROFILE</h4></header>
+		<form action="/editProfile" name="editform" id=""class="pt-5" method="POST">
+				<div class="form-row">
+					<div class="col form-group">
+						<label>First name</label>
+					  	<input type="text" name="firstName" value="{{data.firstName}}" id="inputFirstName" required class="form-control" placeholder="" onkeyup="validateFname()">
+						  <span class='error-message' id='fname-error'></span>
+					</div> <!-- form-group end.// -->
+					<div class="col form-group">
+						<label>Last name</label>
+					  	<input type="text" class="form-control" value="{{data.lastName}}" id="inputLastName" required name="lastName" placeholder=""onkeyup="validateLname()">
+						  <span class='error-message' id='lname-error'></span>
+					</div> <!-- form-group end.// -->
+				</div> <!-- form-row end.// -->
+				<div class="form-group">
+					<label>Email</label>
+					<input type="email" name="email" id="inputEmailAddress"value="{{data.email}}" onkeyup="validateEmail()" required class="form-control" placeholder="">
+					<span class='error-message' id='email-error'></span>
+					<small class="form-text text-muted">We'll never share your email with anyone else.</small>
+				</div> <!-- form-group end.// -->
+				{{!-- <div class="form-group">
+					<label class="custom-control custom-radio custom-control-inline">
+					  <input class="custom-control-input" checked="" type="radio" name="gender" value="option1">
+					  <span class="custom-control-label"> Male </span>
+					</label>
+					<label class="custom-control custom-radio custom-control-inline">
+					  <input class="custom-control-input" type="radio" name="gender" value="option2">
+					  <span class="custom-control-label"> Female </span>
+					</label>
+				</div> <!-- form-group end.// --> --}}
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label>City</label>
+					  <input type="text" required name="city" value="{{data.city}}" class="form-control">
+					</div>
+					<div class="form-group col-md-6">
+					  <label>Phone Number</label>
+					  <input type="text" required name="phoneNumber"  value="{{data.phoneNumber}}" class="form-control">
+					</div>
+					
+					</div>
+					 <!-- form-group end.// -->
+					{{!-- <div class="form-group col-md-6">
+					  <label>Country</label>
+					  <select id="inputState" class="form-control">
+					    <option> Choose...</option>
+					      <option>Uzbekistan</option>
+					      <option>Russia</option>
+					      <option selected="">United States</option>
+					      <option>India</option>
+					      <option>Afganistan</option>
+					  </select>
+					</div> <!-- form-group end.// --> --}}
+				<!-- form-row.// -->
+				{{!-- <div class="form-row">
+					<div class="form-group col-md-6">
+						<label>Update password</label>
+					    <input class="form-control" required id="inputPassword" onkeyup="validatePassword()" name="password"type="password">
+						<span class='error-message' id='password-error'></span>
+						
+					</div> <!-- form-group end.// --> 
+					<div class="form-group col-md-6">
+						<label>Confirm password</label>
+					    <input class="form-control" required id="inputCpassword" onkeyup="validateCpassword()" type="password">
+						<span class='error-message' id='cpassword-error'></span>
+					</div> <!-- form-group end.// -->  
+				</div> --}}
+				<input type="hidden" value="Block" name="status">
+			    <div class="form-group">
+			        <button type="submit" class="btn btn-info btn-block">Update profile  </button>
+			    </div> <!-- form-group// -->      
+			      
+			</form>
+			
+		</article><!-- card-body.// -->
+    </div> <!-- card .// -->
+    
+<!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+
+
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
