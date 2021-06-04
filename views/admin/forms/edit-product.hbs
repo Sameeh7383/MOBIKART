@@ -17,12 +17,12 @@
                         <form class="user pt-5" action="/admin/editproduct/{{this._id}}" method="POST" enctype="multipart/form-data">
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-5 mb-sm-0">
-                                    <input type="text" class="form-control form-control-sm" name="productName"
+                                    <input type="text" required class="form-control form-control-sm" name="productName"
                                         id="product-name" value="{{this.productName}}" >
                                 </div>
                                 <div class="col-sm-6 mt-3 mb-3">
 
-                                    <select class="form-control form-control-sm"  name="category">
+                                    <select class="form-control required form-control-sm"  name="category">
                                         <option>{{this.category}}</option>
                                         <option>Mobile Phones</option>
                                         <option>Laptops</option>
@@ -30,20 +30,20 @@
                                     </select>
                                     </div>
                                 <div class="col-sm-6 mt-3 mb-3">
-                                    <input type="text" name="brand" class="form-control form-control-sm"
+                                    <input type="text" required name="brand" class="form-control form-control-sm"
                                         id="brand" value="{{this.brand}}" placeholder="Brand">
                                 </div>
                                 <div class="col-sm-6 mb-3 ">
-                                    <input type="number" value="{{this.price}}"  name="price" required class="form-control form-control-sm"
+                                    <input type="number" required value="{{this.price}}"  name="price" required class="form-control form-control-sm"
                                         id="price" placeholder="Price">
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <input type="number" value="{{this.offerPrice}}" name="offerPrice" class="form-control form-control-sm"
+                                    <input type="number" required value="{{this.offerPrice}}" name="offerPrice" class="form-control form-control-sm"
                                         id="offerPrice" placeholder="Offer Price">
                                 </div>
                                 <div class="col-sm-6 mb-3">
 
-                                    <select class="form-control form-control-sm" name="RAM"> 
+                                    <select class="form-control required form-control-sm" name="RAM"> 
                                          <option>{{this.RAM}}</option>
                                         <option>4 GB</option>
                                         <option>8 GB</option>
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-sm-6 mb-3">
 
-                                    <select class="form-control form-control-sm"  name="ROM">
+                                    <select class="form-control form-control-sm" required  name="ROM">
                                         <option>{{this.ROM}}</option>
                                         <option>16 GB</option>
                                         <option>32 GB</option>
@@ -66,18 +66,18 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <input type="text" value="{{this.color}}" name="color" class="form-control form-control-sm"
+                                    <input type="text" value="{{this.color}}" required name="color" class="form-control form-control-sm"
                                         id="quantity" placeholder="colour">
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <input type="number" value="{{this.quantity}}" name="quantity" class="form-control form-control-sm"
+                                    <input type="number" required value="{{this.quantity}}" name="quantity" class="form-control form-control-sm"
                                         id="quantity" placeholder="Quantity">
                                 </div>
                                 
                                 <div class="form-group col-sm-12 mb-5">
                                     {{!-- <input type="option" name="RAM" class="form-control form-control-user"
                                         id="exampleInputEmail" placeholder="RAM"> --}}
-                                        <input id="discription" value="{{this.discription}}" name="discription" class="form-control form-control-sm placeholder="Add product discription" style="height: 50px; width: 1000px;"
+                                        <input id="discription" required value="{{this.discription}}" name="discription" class="form-control form-control-sm placeholder="Add product discription" style="height: 50px; width: 1000px;"
                                     {{!-- <textarea id="discription" value="{{this.discription}}" name="discription" style="width: 100%; /* Full width */
   padding: 12px; /* Some padding */ 
   border: 1px solid #ccc; /* Gray border */
@@ -103,7 +103,7 @@
                                    <div class="col-md-12 mb-3">
                                 
 
-                                    <input type="file" name="image1" class="form-control" onchange="viewImage(event)">
+                                    <input type="file" required name="image1" class="form-control" onchange="viewImage(event)">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 mb-3 ">
@@ -115,7 +115,7 @@
                                    <div class="col-md-12 mb-3">
                                 
 
-                                    <input type="file" name="image2" class="form-control" onchange="viewImage2(event)">
+                                    <input type="file" required name="image2" class="form-control" onchange="viewImage2(event)">
                                     </div>
                                 </div>
                                  <div class="col-sm-12 mb-3 ">
@@ -127,7 +127,7 @@
                                    <div class="col-md-12 mb-3">
                                 
 
-                                    <input type="file" name="image3" class="form-control" onchange="viewImage3(event)">
+                                    <input type="file" required name="image3" class="form-control" onchange="viewImage3(event)">
                                     </div>
                                 </div>
                                 <button class="btn btn-primary btn-user btn-block" type="submit">
