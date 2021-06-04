@@ -44,7 +44,7 @@ const GOOGLE_CLIENT_SECRET = '1rq1aTBe34_ipeGcZIGM6Zxc';
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback"
+    callbackURL: "http://mobikart.store/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
       userProfile=profile;
@@ -398,8 +398,8 @@ totalPrice=response.total
               "payment_method": "paypal"
           },
           "redirect_urls": {
-              "return_url": "http://localhost:3000/success",
-              "cancel_url": "http://localhost:3000/cancel"
+              "return_url": "http://mobikart.store/success",
+              "cancel_url": "http://mobikart.store/cancel"
           },
           "transactions": [{
               "item_list": {
