@@ -1,13 +1,16 @@
 
 <!-- ============================ COMPONENT 1 ================================= -->
-<div class="row">
+<div class="row" style="min-height: 70vh;">
 	<aside class="col-lg-9">
 <div class="card">
 <table class="table table-borderless table-shopping-cart">
 <thead class="text-muted">
 		{{#if cartEmpty}}
+		<div class="text-center">
+			<h4 class="mt-3 ">YOUR CART IS EMPTY</h4>
+		</div>
 
-	<p class="mt-3 ">YOUR CART IS EMPTY</p>
+	
 {{else}}
 <tr class="small text-uppercase">
   <th scope="col">Product</th>
@@ -91,7 +94,12 @@
 			<p class="text-center mb-3">
 				<img src="./images/misc/payments.png" height="26">
 			</p>
+			{{#if cartEmpty}}
+			<p></p>
+			
+			{{else}}
 			<a href="/checkout" class="btn btn-primary btn-block"> Checkout </a>
+{{/if}}
 			<a href="/" class="btn btn-light btn-block">Continue Shopping</a>
 		</div> <!-- card-body.// -->
 		</div> <!-- card.// -->
@@ -102,7 +110,6 @@
 </div> <!-- row.// -->
 <!-- ============================ COMPONENT 1 END .// ================================= -->
 
-</div> <!-- container .//  -->
-</section>
+
 <!-- ========================= SECTION CONTENT END// ========================= -->
 

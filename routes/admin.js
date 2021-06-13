@@ -145,6 +145,7 @@ router.get("/manageorder", async function (req, res, next) {
 
 router.get("/salesreport",async function (req, res, next) {
   report=await productHelpers.getSaleProducts()
+  console.log(report)
   
   res.render("admin/sales-report", { layout:false,report });
 });

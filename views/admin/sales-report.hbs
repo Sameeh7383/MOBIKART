@@ -190,6 +190,7 @@
          </div>
          </div>
          </div>
+{{#if report}}
 
 <table id="example" class="display" style="width:100%">
  
@@ -219,6 +220,11 @@
         </tr>
     </tfoot>
 </table>
+{{else}}
+<div class="text-center mt-5">
+    <h4>NO DATA IS AVAILABLE</h4>
+</div>
+{{/if}}
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>

@@ -14,7 +14,7 @@
               <div  class="small-img" >
               
                 <div class="small-container">
-                 <div id="small-img-roll">
+                 <div id="col- small-img-roll">
                    <img src="/product-images/{{this._id}}-1.jpg"class="show-small-img" alt="">
                    <img src="/product-images/{{this._id}}-2.jpg" class="show-small-img" alt="">
                    <img src="/product-images/{{this._id}}.jpg" class="show-small-img" alt="">
@@ -53,8 +53,17 @@
 		
 	</div> <!-- row.// -->
 	<hr>
-	<button class="btn  btn-primary align-items-center" onclick="addToCart('{{this._id}}')"
-><span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i></button>  
+    {{#if quantity}}
+
+<button class="btn  btn-primary align-items-center" onclick="addToCart('{{this._id}}')">
+  
+<span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i></button> 
+{{else}} 
+<button class="btn  btn-danger align-items-center" >
+  
+<span class="text">Out Of Stock</span> <i class="fas fa-shopping-cart"></i></button> 
+{{!-- <button class="btn  btn-danger  btn-block align-items-center" ><span class="text">Out Of Stock</span> <i class="fas fa-shopping-cart"></i></button>  --}}
+{{/if}}
 </article> <!-- product-info-aside .// -->
 		
         {{/product}}

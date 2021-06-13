@@ -73,14 +73,14 @@ $(document).ready(function() {
 			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> 
 				<i class="fa fa-bars"></i> All Brands 
 			</button>
-			{{!-- <div class="dropdown-menu">
-				<a class="dropdown-item" href="#">Machinery / Mechanical Parts / Tools </a>
-				<a class="dropdown-item" href="#">Consumer Electronics / Home Appliances </a>
-				<a class="dropdown-item" href="#">Auto / Transportation</a>
-				<a class="dropdown-item" href="#">Apparel / Textiles / Timepieces </a>
-				<a class="dropdown-item" href="#">Home & Garden / Construction / Lights </a>
-				<a class="dropdown-item" href="#">Beauty & Personal Care / Health </a> 
-			</div> --}}
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="/productList?brand=Asus&pg=1">Asus</a>
+				<a class="dropdown-item" href="/productList?brand=HP&pg=1">HP</a>
+				<a class="dropdown-item" href="/productList?brand=Apple&pg=1">Apple</a>
+				<a class="dropdown-item" href="/productList?brand=Samsung&pg=1">Samsung</a>
+				<a class="dropdown-item" href="/productList?brand=Redmi&pg=1">Redmi</a>
+				<a class="dropdown-item" href="/productList?brand=Realme&pg=1">Realme</a> 
+			</div>
 		</div>  <!-- category-wrap.// -->
 	</div> <!-- col.// -->
 	{{!-- <a href="./store.html" class="btn btn-outline-primary">Store</a> --}}
@@ -150,8 +150,8 @@ $(document).ready(function() {
     {{{body}}}
 
    <!-- ========================= FOOTER ========================= -->
-<footer class="section-footer border-top padding-y">
-	<div class="container">
+<footer class="section-footer border-top padding-y footer margin-auto"  >
+	<div class="container" >
 		<div class="col-md-12 col-lg">
 			<p class="float-lg-right text-center"> 
 			&copy Copyright 2019 All rights reserved
@@ -173,181 +173,7 @@ $(document).ready(function() {
                                                 }, 2000);
 												</script>
 
- {{!-- <script>
-            function validateFname() {
 
-var name = document.getElementById('inputFirstName').value;
 
-if(name.length == 0) {
-
-  producePrompt('Please fill the field', 'fname-error' , 'red')
-  return false;
-
-}
-if (!name.match( /^[a-zA-Z\s]+$/)) {
-
-  producePrompt('Please enter a valid name','fname-error', 'red');
-  return false;
-
-}
-if (name.length<=2) {
-
-  producePrompt('Please enter a valid name','fname-error', 'red');
-  return false;
-
-}
-
-producePrompt('', 'fname-error', 'green');
-return true;
-
-}
-function validateLname() {
-
-var name = document.getElementById('inputLastName').value;
-
-if(name.length == 0) {
-
-  producePrompt('Please fill the field', 'lname-error' , 'red')
-  return false;
-
-}
-if (!name.match( /^[a-zA-Z\s]+$/)) {
-
-  producePrompt('Please enter a valid name','lname-error', 'red');
-  return false;
-
-}
-
-
-producePrompt('', 'lname-error', 'green');
-return true;
-
-}
-function validatePhone() {
-
-var phone = document.getElementById('contact-phone').value;
-
-  if(phone.length == 0) {
-    producePrompt('Please Enter Your Phone Number', 'phone-error', 'red');
-    return false;
-  }
-
-  
-
-  if(!phone.match(/^[0-9]{10}$/)) {
-    producePrompt('Please Enter A Valid Phone Number' ,'phone-error', 'red');
-    return false;
-  }
-
-  producePrompt('', 'phone-error', 'green');
-  return true;
-
-}
-
-
-function validatePassword() {
-
-var name = document.getElementById('inputPassword').value;
-
-if(name.length == 0) {
-
-producePrompt('Please Enter Your Password', 'password-error' , 'red')
-return false;
-
-}
-else if(name.length<=2) {
-
-producePrompt('Password should contain minimum 3 charecters', 'password-error' , 'red')
-return false;
-
-}
-else{
-producePrompt('', 'password-error', 'green');
-return true;
-
-}
-    }
-    
-function validateCpassword() {
-var pass=document.getElementById('inputPassword').value;
-var cpass = document.getElementById('inputCpassword').value;
-
-
-if(cpass.length == 0) {
-
-producePrompt('Please Confirm Your Password', 'cpassword-error' , 'red')
-return false;
-
-}
-else if(pass!=cpass) {
-
-producePrompt('Password is not matching', 'cpassword-error' , 'red')
-return false;
-
-}
-else{
-producePrompt('Matched', 'cpassword-error', 'green');
-return true;
-
-}
-    }
-function validateEmail () {
-
-var email = document.getElementById('inputEmailAddress').value;
-
-if(email.length == 0) {
-
-  producePrompt('Please Enter Your Email','email-error', 'red');
-  return false;
-
-}
-
-if(!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-
-  producePrompt('Please Enter A valid Email Id', 'email-error', 'red');
-  return false;
-
-}
-
-producePrompt('', 'email-error', 'green');
-return true;
-
-}
-
-
-
-function validateForm() {
-if (!validateFname() || !validatePhone() || !validateEmail()||!validatePassword||!validateCpassword||!validateLname()) {
-  jsShow('submit-error');
-  producePrompt('PLEASE ENTER THE FORM PROPERLY', 'submit-error', 'red');
-  setTimeout(function(){jsHide('submit-error');}, 10000);
-}
-else {
-
-}
-}
-
-function jsShow(id) {
-document.getElementById(id).style.display = 'block';
-}
-
-function jsHide(id) {
-document.getElementById(id).style.display = 'none';
-}
-
-
-
-
-
-function producePrompt(message, promptLocation, color) {
-
-document.getElementById(promptLocation).innerHTML = message;
-document.getElementById(promptLocation).style.color = color;
-
-
-</script> --}}
-
-
-
-</body>>
+</body>
 </html>
