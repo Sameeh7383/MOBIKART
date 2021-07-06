@@ -48,7 +48,7 @@ module.exports = {
         }
       data.password = await bcrypt.hash(data.password, 10);
       data.referralCode=referralCodeGenerator.alphaNumeric('uppercase', 2, 3)+data.firstName
-      data.referralLink="http://www.mobikart.store/signupfrm?referral="+data.referralCode
+      data.referralLink="http://mobikart.store/signupfrm?referral="+data.referralCode
       
       console.log(data)
       db.get()
@@ -638,7 +638,7 @@ module.exports = {
                 db.get().collection('user').findOne(email).then((user)=>{
                   if(user){
                     let token=referralCodeGenerator.alphaNumeric('uppercase', 4, 9)
-                    var link="http://www.mobikart.store/resetPwdFrm?token="+token
+                    var link="http://mobikart.store/resetPwdFrm?token="+token
                     db.get().collection('reset').insertOne({userId:ObjectID(user._id),token:token,date:new Date()}).then(()=>{
                       var transporter = nodemailer.createTransport({
                         service: 'gmail',
@@ -709,7 +709,7 @@ module.exports = {
 
               else{
                   var referralCode=referralCodeGenerator.alphaNumeric('uppercase', 2, 3)+user.name.givenName
-                  var referralLink="http://www.mobikart.store/signupfrm?referral="+referralCode
+                  var referralLink="http://mobikart.store/signupfrm?referral="+referralCode
                   var referrals=0
                   if(referral){
                     referrals=1
@@ -753,7 +753,7 @@ module.exports = {
                       }
                   else{
                       var referralCode=referralCodeGenerator.alphaNumeric('uppercase', 2, 3)+firstName
-                      var referralLink="http://www.mobikart.store/signupfrm?referral="+referralCode
+                      var referralLink="http://mobikart.store/signupfrm?referral="+referralCode
                       var referrals=0
                       if(referral){
                         referrals=1
